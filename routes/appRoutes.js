@@ -12,9 +12,9 @@ router.post('/create',(req,res,next) => {
     newCountry
         .save()
         .then( country => {
-            res.status(200).json({msg:countries});
-        }).cathch(err => {
-            res.status(500).json({errmsg:err});
+            res.status(200).json({msg:country});
+        }).catch(err => {
+            res.status(500).json({errmsg: err });
         })
 });
 
@@ -54,10 +54,10 @@ router.put('/update',(req,res,next) => {
                 .save()
                 .then(country => {
                     res.status(200).json({msg:country});
-                }).cathch(err => {
+                }).catch(err => {
                     res.status(500).json({errmsg:err});
                 })
-        }).cathch(err => {
+        }).catch(err => {
             res.status(500).json({errmsg:err});
         })
 });

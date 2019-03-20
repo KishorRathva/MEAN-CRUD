@@ -4,7 +4,7 @@ const Country = require('../models/dataSchema');
 
 
 //Create
-router.post('/create',(req,res,next) => {
+router.post('/',(req,res,next) => {
     var newCountry = new Country({
         name:req.body.name,
         capital:req.body.capital
@@ -19,7 +19,7 @@ router.post('/create',(req,res,next) => {
 });
 
 //Read
-router.get('/read',(req,res,next) => {
+router.get('/',(req,res,next) => {
     Country.find({},(err,countries) => {
         if(err){
             res.status(500).json({errmsg:err});
@@ -29,7 +29,7 @@ router.get('/read',(req,res,next) => {
 });
 
 //Update
-router.put('/update',(req,res,next) => {
+router.put('/',(req,res,next) => {
 
     // Country.findById(req.body._id,(err,country) => {
     //     if(err){
@@ -64,7 +64,7 @@ router.put('/update',(req,res,next) => {
 
 
 //Delete
-router.delete('/delete/:id',(req,res,next) => {
+router.delete('/:id',(req,res,next) => {
     Country.findOneAndRemove({_id:req.params.id})
         .then( country => {
             res.status(200).json({msg:country});
